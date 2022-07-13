@@ -9,7 +9,7 @@ export interface FetchChannelNextPageProps extends FetchChannelProps {
   /**
    * Encoded string you can get from basic fetchChannel
    */
-  nextpage?: string
+  nextpage: string
 }
 
 export class ChannelFetcher extends PipedFetcher {
@@ -31,6 +31,10 @@ export class ChannelFetcher extends PipedFetcher {
     }
   }
 
+  /**
+   * Allows to fetch next page of channel.
+   * Requires encoded "nextpage" string which you can get from fetchChannel()
+   */
   async fetchChannelNextPage(props: FetchChannelNextPageProps): Promise<ChannelNextPage | null> {
     const { nextpage, userId } = props
 
