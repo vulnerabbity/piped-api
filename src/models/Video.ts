@@ -14,6 +14,8 @@ export interface Video {
 
   title: string
 
+  uploaderName: string
+
   /**
    * String contain information how long ago video was uploaded
    *
