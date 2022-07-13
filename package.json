@@ -2,7 +2,9 @@
   "name": "piped-api",
   "version": "0.0.1",
   "description": "TypeScript library to use Piped API - privacy-friendly youtube API",
-  "scripts": {},
+  "scripts": {
+    "build": "rm -rf dist/lib && npx tsc --build tsconfig.es5.json && npx tsc --build tsconfig.es6.json"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vulnerabbity/piped-api.git"
