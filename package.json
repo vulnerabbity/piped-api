@@ -19,8 +19,16 @@
   ],
   "author": "vulnerabbity",
   "license": "GPL-3.0-or-later",
+  "main": "./lib/es5/index.js",
+  "module": "./lib/es6/index.js",
   "bugs": {
     "url": "https://github.com/vulnerabbity/piped-api/issues"
   },
-  "homepage": "https://github.com/vulnerabbity/piped-api#readme"
+  "homepage": "https://github.com/vulnerabbity/piped-api#readme",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
 }

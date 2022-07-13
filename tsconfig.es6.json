@@ -3,6 +3,6 @@
   "compilerOptions": {
     "module": "ES6",
     "target": "ES5",
-    "outDir": "./dist/lib/es6",
+    "outDir": "./lib/es6",
   },
 }
