@@ -1,6 +1,6 @@
 import { Video } from "./Video"
 
-export interface Channel {
+export interface DetailedChannel {
   id: string
 
   /**
@@ -29,4 +29,4 @@ export interface Channel {
   verified: boolean
 }
 
-export type ChannelNextPage = Pick<Channel, "nextpage" | "relatedStreams">
+export type DetailedChannelNextPage = Pick<DetailedChannel, "nextpage" | "relatedStreams">

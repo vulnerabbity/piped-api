@@ -1,4 +1,4 @@
-import { Channel, ChannelNextPage } from "../models/Channel"
+import { DetailedChannel, DetailedChannelNextPage } from "../models/Channel"
 import { PipedFetcher } from "./PipedFetcher"
 
 export interface FetchChannelProps {
@@ -16,12 +16,12 @@ export class ChannelFetcher extends PipedFetcher {
   protected channelEndpoint = this.baseUrl + "/channel"
   protected channelNextPageEndpoint = this.baseUrl + "/nextpage/channel"
 
-  async fetchChannel(props: FetchChannelProps): Promise<Channel | null> {
+  async fetchChannel(props: FetchChannelProps): Promise<DetailedChannel | null> {
     const { userId } = props
     const url = `${this.channelEndpoint}/${userId}`
 
     try {
-      const response = await this.httpClient.get<Channel>(url)
+      const response = await this.httpClient.get<DetailedChannel>(url)
 
       return response.data
     } catch (error) {
@@ -35,14 +35,16 @@ export class ChannelFetcher extends PipedFetcher {
    * Allows to fetch next page of channel.
    * Requires encoded "nextpage" string which you can get from fetchChannel()
    */
-  async fetchChannelNextPage(props: FetchChannelNextPageProps): Promise<ChannelNextPage | null> {
+  async fetchChannelNextPage(
+    props: FetchChannelNextPageProps,
+  ): Promise<DetailedChannelNextPage | null> {
     const { nextpage, userId } = props
 
     const params = { nextpage }
     const url = `${this.channelNextPageEndpoint}/${userId}`
 
     try {
-      const response = await this.httpClient.get<ChannelNextPage>(url, { params })
+      const response = await this.httpClient.get<DetailedChannelNextPage>(url, { params })
 
       return response.data
     } catch (error) {
