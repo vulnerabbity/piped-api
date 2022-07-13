@@ -1,6 +1,6 @@
 import { Video } from "./Video"
 
-export interface User {
+export interface Channel {
   id: string
 
   /**
@@ -18,9 +18,9 @@ export interface User {
   description: string
 
   /**
-   * Encoded string to get next page of content
+   * Encoded string to get next page of content. null if no next page
    */
-  nextpage: string
+  nextpage: string | null
 
   relatedStreams: Video[]
 
@@ -28,3 +28,5 @@ export interface User {
 
   verified: boolean
 }
+
+export type ChannelNextPage = Pick<Channel, "nextpage" | "relatedStreams">
