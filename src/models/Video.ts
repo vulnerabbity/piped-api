@@ -1,6 +1,8 @@
 export interface Video {
   /**
    * Duration in seconds
+   *
+   * Important: -1 for streams
    */
   duration: number
 
@@ -19,9 +21,11 @@ export interface Video {
   /**
    * String contain information how long ago video was uploaded
    *
+   * Important: Null for streams
+   *
    * Example: "12 hours ago"
    */
-  uploadedDate: string
+  uploadedDate: string | null
 
   /**
    * Absolute path to image
@@ -38,6 +42,13 @@ export interface Video {
    * "/channel/..."
    */
   uploaderUrl: string
+
+  /**
+   * Milliseconds since video uploaded.
+   *
+   * Important: -1 for streams
+   */
+  uploaded: number
 
   /**
    * Relative link to video
