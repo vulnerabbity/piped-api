@@ -16,12 +16,12 @@ export interface SearchResult<T extends SearchItem = SearchItem> {
   /**
    * If typed incorrectly will be correction string
    *
-   * Default is empty string
+   * Default is empty string or null
    *
    * Example:
    * rick astleyy -> rick astley
    */
-  suggestion: string
+  suggestion: string | null
 
   /**
    * If typed incorrectly will be true
