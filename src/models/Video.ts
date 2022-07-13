@@ -1,17 +1,49 @@
 export interface Video {
-  duration: number;
+  /**
+   * Duration in seconds
+   */
+  duration: number
 
-  thumbnail: string;
+  /**
+   * Absolute path to image
+   *
+   * Example:
+   * "https://domain/image"
+   */
+  thumbnail: string
 
-  title: string;
+  title: string
 
-  uploadedDate: string;
+  /**
+   * String contain information how long ago video was uploaded
+   *
+   * Example: "12 hours ago"
+   */
+  uploadedDate: string
 
-  uploaderAvatar: string;
+  /**
+   * Absolute path to image
+   *
+   * Example:
+   * "https://domain/image"
+   */
+  uploaderAvatar: string
 
-  uploaderUrl: string;
+  /**
+   * Relative link to channel
+   *
+   * Example:
+   * "/channel/..."
+   */
+  uploaderUrl: string
 
-  url: string;
+  /**
+   * Relative link to video
+   *
+   * Example:
+   * /watch?v=dQw4w9WgXcQ
+   */
+  url: string
 
-  views: number;
+  views: number
 }
