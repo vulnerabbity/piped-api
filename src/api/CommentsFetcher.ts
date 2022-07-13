@@ -1,11 +1,7 @@
 import { CommentsPage } from "../models/Comment"
 import { PipedFetcher } from "./PipedFetcher"
 
-export interface CommentsFetcherFetchCommentsParams {
-  videoId: string
-}
-
-export interface CommentsFetcherFetchCommentsNextPageParams {
+export interface CommentsFetcherFetchCommentsProps {
   videoId: string
   nextpage: string
 }
@@ -14,13 +10,14 @@ export class CommentsFetcher extends PipedFetcher {
   protected readonly commentsEndpoint = this.baseUrl + "/comments"
   protected readonly commentsNextPageEndpoint = this.baseUrl + "/nextpage/comments"
 
-  async fetchComments(params: CommentsFetcherFetchCommentsParams): Promise<CommentsPage | null> {
-    const { videoId } = params
+  async fetchComments(props: CommentsFetcherFetchCommentsProps): Promise<CommentsPage | null> {
+    const { videoId, nextpage } = props
+    const params = { nextpage }
 
-    const url = `${this.commentsEndpoint}/${videoId}`
+    const url = this.getUrl(props)
 
     try {
-      const response = await this.httpClient.get<CommentsPage>(url)
+      const response = await this.httpClient.get<CommentsPage>(url, { params })
 
       return response.data
     } catch (error) {
@@ -30,26 +27,15 @@ export class CommentsFetcher extends PipedFetcher {
     }
   }
 
-  /**
-   * Fetch comments of video or concrete comment
-   */
-  async fetchCommentsNextPage(
-    props: CommentsFetcherFetchCommentsNextPageParams,
-  ): Promise<CommentsPage | null> {
+  protected getUrl(props: CommentsFetcherFetchCommentsProps) {
     const { nextpage, videoId } = props
 
-    const params = { nextpage }
+    let url = `${this.commentsEndpoint}/${videoId}`
 
-    const url = `${this.commentsNextPageEndpoint}/${videoId}`
-
-    try {
-      const response = await this.httpClient.get(url, { params })
-
-      return response.data
-    } catch (error) {
-      console.error(`Failed to fetch comments next page for video ${videoId}. ${error}`)
-
-      return null
+    if (nextpage) {
+      url = `${this.commentsNextPageEndpoint}/${videoId}`
     }
+
+    return url
   }
 }
