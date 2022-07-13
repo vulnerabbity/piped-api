@@ -1,5 +1,6 @@
 import { Region } from "../models/Region"
 import { ChannelFetcher } from "./ChannelFetcher"
+import { CommentsFetcher } from "./CommentsFetcher"
 import { SearchSuggester } from "./SearchSuggester"
 import { TrendsFetcher } from "./TrendsFetcher"
 import { VideoFetcher } from "./VideoFetcher"
@@ -14,6 +15,7 @@ export class PipedApi {
   readonly channel: ChannelFetcher
   readonly searchSuggestions: SearchSuggester
   readonly video: VideoFetcher
+  readonly comments: CommentsFetcher
 
   constructor(props: PipedApiProps = {}) {
     this.trends = new TrendsFetcher(props)
@@ -23,5 +25,7 @@ export class PipedApi {
     this.searchSuggestions = new SearchSuggester(props)
 
     this.video = new VideoFetcher(props)
+
+    this.comments = new CommentsFetcher(props)
   }
 }
