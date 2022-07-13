@@ -1,4 +1,5 @@
 import { AudioStream } from "./AudioStream"
+import { Chapter } from "./Chapter"
 import { SubtitlesItem } from "./Subtitles"
 import { Video } from "./Video"
 import { VideoStream } from "./VideoStream"
@@ -53,6 +54,8 @@ export interface DetailedVideo {
   relatedStreams: Video[]
 
   subtitles: SubtitlesItem[]
+
+  chapters: Chapter[]
 
   /**
    * The proxy url to be used for rewrites
