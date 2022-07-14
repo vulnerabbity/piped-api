@@ -91,9 +91,10 @@ export class Searcher extends PipedFetcher {
     const isValidSearchFilter = SearchFilters.includes(filter as any)
 
     if (isValidSearchFilter) {
-      console.error(`Warning: "${filter}" is not valid search filter. Valid are ${SearchFilters}`)
       return filter as SearchFilter
     }
+
+    console.error(`Warning: "${filter}" is not valid search filter. Valid are ${SearchFilters}`)
 
     return "all"
   }
