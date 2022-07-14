@@ -1,4 +1,10 @@
 export interface Video {
+  title: string
+
+  shortDescription: string
+
+  views: number
+
   /**
    * Duration in seconds
    *
@@ -14,9 +20,14 @@ export interface Video {
    */
   thumbnail: string
 
-  title: string
-
   uploaderName: string
+
+  /**
+   * Milliseconds since video uploaded.
+   *
+   * Important: -1 for streams
+   */
+  uploaded: number
 
   /**
    * String contain information how long ago video was uploaded
@@ -44,13 +55,6 @@ export interface Video {
   uploaderUrl: string
 
   /**
-   * Milliseconds since video uploaded.
-   *
-   * Important: -1 for streams
-   */
-  uploaded: number
-
-  /**
    * Relative link to video
    *
    * Example:
@@ -58,5 +62,5 @@ export interface Video {
    */
   url: string
 
-  views: number
+  uploaderVerified: boolean
 }
