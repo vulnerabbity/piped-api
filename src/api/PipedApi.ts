@@ -15,7 +15,7 @@ export interface PipedApiProps {
 export class PipedApi {
   readonly trends: TrendsFetcher
   readonly channel: ChannelFetcher
-  readonly searchSuggestions: SearchSuggester
+  readonly suggestions: SearchSuggester
   readonly video: VideoFetcher
   readonly comments: CommentsFetcher
   readonly search: Searcher
@@ -26,7 +26,7 @@ export class PipedApi {
 
     this.channel = new ChannelFetcher(props)
 
-    this.searchSuggestions = new SearchSuggester(props)
+    this.suggestions = new SearchSuggester(props)
 
     this.video = new VideoFetcher(props)
 
