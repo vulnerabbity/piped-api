@@ -1,3 +1,5 @@
+import { TestUtils } from "../utils/TestUtils"
+
 export interface VideoStream {
   /**
    * Bitrate in bytes
@@ -9,7 +11,7 @@ export interface VideoStream {
    *
    * Example: avc1.64002a
    */
-  codec: string
+  codec: string | null
 
   /**
    * Format of video
@@ -75,4 +77,42 @@ export interface VideoStream {
    * Useful for creating dash streams
    */
   initEnd: number
+}
+
+export function testVideoStreams(streams: VideoStream[]) {
+  streams.forEach(stream => testVideoStream(stream))
+}
+
+export function testVideoStream(stream: VideoStream) {
+  const {
+    bitrate,
+    codec,
+    format,
+    fps,
+    height,
+    width,
+    indexStart,
+    indexEnd,
+    initStart,
+    initEnd,
+    mimeType,
+    quality,
+    url,
+    videoOnly,
+  } = stream
+
+  TestUtils.expectNumber(bitrate)
+  TestUtils.expectStringOrNull(codec)
+  TestUtils.expectString(format)
+  TestUtils.expectNumber(fps)
+  TestUtils.expectNumber(height)
+  TestUtils.expectNumber(width)
+  TestUtils.expectNumber(indexStart)
+  TestUtils.expectNumber(indexEnd)
+  TestUtils.expectNumber(initStart)
+  TestUtils.expectNumber(initEnd)
+  TestUtils.expectString(mimeType)
+  TestUtils.expectString(quality)
+  TestUtils.expectString(url)
+  TestUtils.expectBoolean(videoOnly)
 }
