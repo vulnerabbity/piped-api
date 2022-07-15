@@ -1,7 +1,9 @@
+import { TestUtils } from "../utils/TestUtils"
+
 export interface Video {
   title: string
 
-  shortDescription: string
+  shortDescription: string | null
 
   views: number
 
@@ -63,4 +65,40 @@ export interface Video {
   url: string
 
   uploaderVerified: boolean
+}
+
+export function testVideos(videos: Video[]) {
+  for (let video of videos) {
+    testVideo(video)
+  }
+}
+
+export function testVideo(video: Video) {
+  const {
+    duration,
+    shortDescription,
+    thumbnail,
+    title,
+    uploaded,
+    uploadedDate,
+    uploaderAvatar,
+    uploaderName,
+    uploaderUrl,
+    uploaderVerified,
+    url,
+    views,
+  } = video
+
+  TestUtils.expectNumber(duration)
+  TestUtils.expectStringOrNull(shortDescription)
+  TestUtils.expectString(thumbnail)
+  TestUtils.expectString(title)
+  TestUtils.expectNumber(uploaded)
+  TestUtils.expectString(uploaderAvatar)
+  TestUtils.expectString(uploaderName)
+  TestUtils.expectBoolean(uploaderVerified)
+  TestUtils.expectStringOrNull(uploadedDate)
+  TestUtils.expectString(uploaderUrl)
+  TestUtils.expectString(url)
+  TestUtils.expectNumber(views)
 }
