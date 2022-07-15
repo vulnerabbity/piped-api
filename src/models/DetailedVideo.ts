@@ -1,8 +1,9 @@
-import { AudioStream } from "./AudioStream"
-import { Chapter } from "./Chapter"
-import { SubtitlesItem } from "./Subtitles"
-import { Video } from "./Video"
-import { VideoStream } from "./VideoStream"
+import { TestUtils } from "../utils/TestUtils"
+import { AudioStream, testAudioStream, testAudioStreams } from "./AudioStream"
+import { Chapter, testChapters } from "./Chapter"
+import { SubtitlesItem, testSubtitles } from "./Subtitles"
+import { testVideos, Video } from "./Video"
+import { testVideoStream, testVideoStreams, VideoStream } from "./VideoStream"
 
 export interface DetailedVideo {
   title: string
@@ -26,17 +27,22 @@ export interface DetailedVideo {
   thumbnailUrl: string
 
   /**
+   * Channel name
+   */
+  uploader: string
+
+  /**
+   * -1 if hidden
+   */
+  uploaderSubscriberCount: number
+
+  /**
    * The date the video was uploaded
    *
    * Example:
    * 2021-01-01
    */
-  uploadedDate: string
-
-  /**
-   * Channel name
-   */
-  uploader: string
+  uploadDate: string
 
   /**
    * Relative link to chanel
@@ -77,4 +83,56 @@ export interface DetailedVideo {
    * The hls manifest URL, to be used for Livestreams
    */
   hls: string | null
+}
+
+export function testDetailedVideo(video: DetailedVideo) {
+  const {
+    title,
+    description,
+    likes,
+    dislikes,
+    views,
+    thumbnailUrl,
+    proxyUrl,
+    chapters,
+    dash,
+    duration,
+    hls,
+    livestream,
+    relatedStreams,
+    subtitles,
+    audioStreams,
+    videoStreams,
+    // upload*
+    uploader,
+    uploaderUrl,
+    uploaderVerified,
+    uploadDate,
+    uploaderSubscriberCount,
+  } = video
+
+  TestUtils.expectString(title)
+  TestUtils.expectString(description)
+  TestUtils.expectNumber(views)
+
+  TestUtils.expectNumber(likes)
+  TestUtils.expectNumber(dislikes)
+  TestUtils.expectStringOrNull(dash)
+  TestUtils.expectNumber(duration)
+  TestUtils.expectStringOrNull(hls)
+  TestUtils.expectBoolean(livestream)
+  TestUtils.expectString(proxyUrl)
+  TestUtils.expectString(thumbnailUrl)
+  // upload*
+  TestUtils.expectString(uploader)
+  TestUtils.expectString(uploaderUrl)
+  TestUtils.expectBoolean(uploaderVerified)
+  TestUtils.expectString(uploadDate)
+  TestUtils.expectNumber(uploaderSubscriberCount)
+
+  testVideos(relatedStreams)
+  testChapters(chapters)
+  testSubtitles(subtitles)
+  testAudioStreams(audioStreams)
+  testVideoStreams(videoStreams)
 }
