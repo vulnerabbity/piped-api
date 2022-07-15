@@ -27,10 +27,11 @@
   },
   "homepage": "https://github.com/vulnerabbity/piped-api#readme",
   "devDependencies": {
+    "@types/jest": "^28.1.5",
+    "jest": "^28.1.3",
     "typescript": "^4.7.4"
   },
   "dependencies": {
-    "axios": "^0.27.2",
-    "jest": "^28.1.3"
+    "axios": "^0.27.2"
   }
 }
