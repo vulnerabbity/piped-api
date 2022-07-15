@@ -8,7 +8,7 @@ export interface VideoFetcherFetchVideoParams {
 export class VideoFetcher extends PipedFetcher {
   private videoEndpoint = this.baseUrl + "/streams"
 
-  async fetchVideo(params: VideoFetcherFetchVideoParams): Promise<DetailedVideo | null> {
+  async fetch(params: VideoFetcherFetchVideoParams): Promise<DetailedVideo | null> {
     const { videoId } = params
 
     const url = `${this.videoEndpoint}/${videoId}`
