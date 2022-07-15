@@ -1,3 +1,5 @@
+import { TestUtils } from "../utils/TestUtils"
+
 export interface Channel {
   name: string
 
@@ -11,7 +13,7 @@ export interface Channel {
    */
   url: string
 
-  description: string
+  description: string | null
 
   /**
    * Number of subscribers
@@ -27,4 +29,20 @@ export interface Channel {
    * Weather or not user is verified
    */
   verified: boolean
+}
+
+export function testChannels(channels: Channel[]) {
+  channels.forEach(channel => testChannel(channel))
+}
+
+export function testChannel(channel: Channel) {
+  const { description, name, subscribers, thumbnail, url, verified, videos } = channel
+
+  TestUtils.expectStringOrNull(description)
+  TestUtils.expectString(name)
+  TestUtils.expectNumber(subscribers)
+  TestUtils.expectString(thumbnail)
+  TestUtils.expectString(url)
+  TestUtils.expectBoolean(verified)
+  TestUtils.expectNumber(videos)
 }
