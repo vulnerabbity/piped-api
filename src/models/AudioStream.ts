@@ -1,3 +1,5 @@
+import { TestUtils } from "../utils/TestUtils"
+
 export interface AudioStream {
   /**
    * Bitrate in bytes
@@ -64,4 +66,36 @@ export interface AudioStream {
    * Useful for creating dash streams
    */
   initEnd: number
+}
+
+export function testAudioStreams(audioStreams: AudioStream[]) {
+  audioStreams.forEach(stream => testAudioStream(stream))
+}
+
+export function testAudioStream(audioStream: AudioStream) {
+  const {
+    bitrate,
+    codec,
+    format,
+    indexEnd,
+    indexStart,
+    initEnd,
+    initStart,
+    mimeType,
+    quality,
+    url,
+    videoOnly,
+  } = audioStream
+
+  TestUtils.expectNumber(bitrate)
+  TestUtils.expectString(codec)
+  TestUtils.expectString(format)
+  TestUtils.expectNumber(indexEnd)
+  TestUtils.expectNumber(indexStart)
+  TestUtils.expectNumber(initEnd)
+  TestUtils.expectNumber(initStart)
+  TestUtils.expectString(mimeType)
+  TestUtils.expectString(quality)
+  TestUtils.expectString(url)
+  TestUtils.expectBoolean(videoOnly)
 }
