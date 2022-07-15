@@ -1,5 +1,5 @@
-import { Video } from "../models"
-import { PipedFetcher } from "./PipedFetcher"
+import { Video } from "../../models"
+import { PipedFetcher } from "../PipedFetcher"
 
 export class TrendsFetcher extends PipedFetcher {
   protected readonly trendsUrl = this.baseUrl + "/trending"

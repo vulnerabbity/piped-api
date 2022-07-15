@@ -4,7 +4,7 @@ import { CommentsFetcher } from "./CommentsFetcher"
 import { PlaylistFetcher } from "./PlaylistFetcher"
 import { Searcher } from "./Searcher"
 import { SearchSuggester } from "./SearchSuggester"
-import { TrendsFetcher } from "./TrendsFetcher"
+import { TrendsFetcher } from "./TrendsFetcher/TrendsFetcher"
 import { VideoFetcher } from "./VideoFetcher"
 
 export interface PipedApiProps {
