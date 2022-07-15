@@ -1,4 +1,5 @@
-import { ShortVideo } from "./ShortVideo"
+import { TestUtils } from "../utils/TestUtils"
+import { ShortVideo, testShortVideo, testShortVideos } from "./ShortVideo"
 
 export interface DetailedPlaylist {
   /**
@@ -43,4 +44,28 @@ export interface DetailedPlaylistNextPage {
   nextpage: string | null
 
   relatedStreams: ShortVideo[]
+}
+
+export function testDetailedPlaylist(detailedPlaylist: DetailedPlaylist) {
+  const {
+    name,
+    nextpage,
+    relatedStreams,
+    thumbnailUrl,
+    uploader,
+    uploaderAvatar,
+    uploaderUrl,
+    videos,
+  } = detailedPlaylist
+
+  TestUtils.expectString(name)
+  TestUtils.expectStringOrNull(nextpage)
+
+  TestUtils.expectString(thumbnailUrl)
+  TestUtils.expectString(uploader)
+  TestUtils.expectString(uploaderAvatar)
+  TestUtils.expectString(uploaderUrl)
+  TestUtils.expectNumber(videos)
+
+  testShortVideos(relatedStreams)
 }
