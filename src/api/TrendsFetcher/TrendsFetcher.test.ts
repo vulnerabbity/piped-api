@@ -1,5 +1,5 @@
+import { testVideo } from "../../models/Video"
 import { TrendsFetcher } from "./TrendsFetcher"
-import { testVideo } from "../../models/ModelTester"
 
 describe(TrendsFetcher.name, () => {
   const trendsFetcher = new TrendsFetcher()
