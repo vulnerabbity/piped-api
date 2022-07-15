@@ -46,7 +46,7 @@ export interface Video {
    * Example:
    * "https://domain/image"
    */
-  uploaderAvatar: string
+  uploaderAvatar: string | null
 
   /**
    * Relative link to channel
@@ -94,7 +94,7 @@ export function testVideo(video: Video) {
   TestUtils.expectString(thumbnail)
   TestUtils.expectString(title)
   TestUtils.expectNumber(uploaded)
-  TestUtils.expectString(uploaderAvatar)
+  TestUtils.expectStringOrNull(uploaderAvatar)
   TestUtils.expectString(uploaderName)
   TestUtils.expectBoolean(uploaderVerified)
   TestUtils.expectStringOrNull(uploadedDate)
