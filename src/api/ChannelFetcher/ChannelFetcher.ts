@@ -16,7 +16,7 @@ export class ChannelFetcher extends PipedFetcher {
   protected channelEndpoint = this.baseUrl + "/channel"
   protected channelNextPageEndpoint = this.baseUrl + "/nextpage/channel"
 
-  async fetchChannel(props: FetchChannelProps): Promise<DetailedChannel | null> {
+  async fetch(props: FetchChannelProps): Promise<DetailedChannel | null> {
     const { userId } = props
     const url = `${this.channelEndpoint}/${userId}`
 
@@ -35,9 +35,7 @@ export class ChannelFetcher extends PipedFetcher {
    * Allows to fetch next page of channel.
    * Requires encoded "nextpage" string which you can get from fetchChannel()
    */
-  async fetchChannelNextPage(
-    props: FetchChannelNextPageProps,
-  ): Promise<DetailedChannelNextPage | null> {
+  async fetchNextPage(props: FetchChannelNextPageProps): Promise<DetailedChannelNextPage | null> {
     const { nextpage, userId } = props
 
     const params = { nextpage }
