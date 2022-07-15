@@ -1,4 +1,4 @@
-import { PipedFetcher } from "./PipedFetcher"
+import { PipedFetcher } from "../PipedFetcher"
 
 export class SearchSuggester extends PipedFetcher {
   protected suggestionsUrl = this.baseUrl + "/suggestions"

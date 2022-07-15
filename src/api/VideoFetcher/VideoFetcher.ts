@@ -1,5 +1,5 @@
-import { DetailedVideo } from "../models/DetailedVideo"
-import { PipedFetcher } from "./PipedFetcher"
+import { DetailedVideo } from "../../models/DetailedVideo"
+import { PipedFetcher } from "../PipedFetcher"
 
 export interface VideoFetcherFetchVideoParams {
   videoId: string

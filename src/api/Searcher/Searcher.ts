@@ -1,9 +1,9 @@
-import { Video } from "../models"
-import { Channel } from "../models/Channel"
-import { MusicAlbum, MusicPlaylist, MusicSong, MusicVideo } from "../models/Music"
-import { Playlist } from "../models/Playlist"
-import { SearchItem, SearchResult } from "../models/SearchResult"
-import { PipedFetcher } from "./PipedFetcher"
+import { Video } from "../../models"
+import { Channel } from "../../models/Channel"
+import { MusicAlbum, MusicPlaylist, MusicSong, MusicVideo } from "../../models/Music"
+import { Playlist } from "../../models/Playlist"
+import { SearchItem, SearchResult } from "../../models/SearchResult"
+import { PipedFetcher } from "../PipedFetcher"
 
 const SearchFilters = [
   "all",

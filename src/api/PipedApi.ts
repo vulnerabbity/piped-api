@@ -1,11 +1,11 @@
 import { Region } from "../models/Region"
-import { ChannelFetcher } from "./ChannelFetcher"
-import { CommentsFetcher } from "./CommentsFetcher"
-import { PlaylistFetcher } from "./PlaylistFetcher"
-import { Searcher } from "./Searcher"
-import { SearchSuggester } from "./SearchSuggester"
+import { ChannelFetcher } from "./ChannelFetcher/ChannelFetcher"
+import { CommentsFetcher } from "./CommentsFetcher/CommentsFetcher"
+import { PlaylistFetcher } from "./PlaylistFetcher/PlaylistFetcher"
+import { Searcher } from "./Searcher/Searcher"
+import { SearchSuggester } from "./SearchSuggester/SearchSuggester"
 import { TrendsFetcher } from "./TrendsFetcher/TrendsFetcher"
-import { VideoFetcher } from "./VideoFetcher"
+import { VideoFetcher } from "./VideoFetcher/VideoFetcher"
 
 export interface PipedApiProps {
   pipedInstanceBaseUrl?: string

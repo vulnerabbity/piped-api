@@ -1,5 +1,5 @@
-import { CommentsPage } from "../models/Comment"
-import { PipedFetcher } from "./PipedFetcher"
+import { CommentsPage } from "../../models/Comment"
+import { PipedFetcher } from "../PipedFetcher"
 
 export interface CommentsFetcherFetchCommentsProps {
   videoId: string

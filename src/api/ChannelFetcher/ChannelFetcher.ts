@@ -1,5 +1,5 @@
-import { DetailedChannel, DetailedChannelNextPage } from "../models/DetailedChannel"
-import { PipedFetcher } from "./PipedFetcher"
+import { DetailedChannel, DetailedChannelNextPage } from "../../models/DetailedChannel"
+import { PipedFetcher } from "../PipedFetcher"
 
 export interface FetchChannelProps {
   userId: string

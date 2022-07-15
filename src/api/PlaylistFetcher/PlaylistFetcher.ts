@@ -1,5 +1,5 @@
-import { DetailedPlaylist, DetailedPlaylistNextPage } from "../models/DetailedPlaylist"
-import { PipedFetcher } from "./PipedFetcher"
+import { DetailedPlaylist, DetailedPlaylistNextPage } from "../../models/DetailedPlaylist"
+import { PipedFetcher } from "../PipedFetcher"
 
 export interface FetchPlaylistProps {
   playlistId: string
