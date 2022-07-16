@@ -25,7 +25,7 @@ export interface Video {
   uploaderName: string
 
   /**
-   * Milliseconds since video uploaded.
+   * Milliseconds since 1970 to video upload time
    *
    * Important: -1 for streams
    */
