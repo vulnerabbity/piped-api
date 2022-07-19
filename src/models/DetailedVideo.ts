@@ -51,6 +51,11 @@ export interface DetailedVideo {
    */
   uploaderUrl: string
 
+  /**
+   * Absolute url to uploader avatar
+   */
+  uploaderAvatar: string
+
   uploaderVerified: boolean
 
   audioStreams: AudioStream[]
@@ -106,6 +111,7 @@ export function testDetailedVideo(video: DetailedVideo) {
     // upload*
     uploader,
     uploaderUrl,
+    uploaderAvatar,
     uploaderVerified,
     uploadDate,
     uploaderSubscriberCount,
@@ -126,6 +132,7 @@ export function testDetailedVideo(video: DetailedVideo) {
   // upload*
   TestUtils.expectString(uploader)
   TestUtils.expectString(uploaderUrl)
+  TestUtils.expectString(uploaderAvatar)
   TestUtils.expectBoolean(uploaderVerified)
   TestUtils.expectString(uploadDate)
   TestUtils.expectNumber(uploaderSubscriberCount)
